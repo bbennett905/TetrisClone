@@ -2,10 +2,6 @@
 
 #include <stdlib.h>
 
-#define FIELD_HEIGHT 22
-#define FIELD_WIDTH 10
-#define FIELD_SIZE (FIELD_HEIGHT * FIELD_WIDTH)
-
 //only really need to save the color of each block, not its position
 block_color field[FIELD_SIZE];
 
