@@ -61,5 +61,6 @@ typedef struct tetromino_t
 
 //Attempts to rotate a tetromino 90 degrees CW
 void rotate(tetromino_t* block);
-//Returns true if the tetromino is colliding with the floor or another block underneath
-bool is_colliding(tetromino_t* block);
+
+//Returns true if a block is under the tetromino
+bool has_block_under(tetromino_t* block);

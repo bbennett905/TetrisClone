@@ -38,7 +38,15 @@ void rotate(tetromino_t* block)
 	*block = copy;
 }
 
-bool is_colliding(tetromino_t* block)
+bool has_block_under(tetromino_t* block)
 {
+	vec2d8_t temp;
+	for (int i = 0; i < 4; i++)
+	{
+		temp = block->_blocks[i]._pos;
+		temp.y--;
+		if (is_block_at(temp)) return true;
+		if (temp.y < 0) return true;
+	}
 	return false;
 }

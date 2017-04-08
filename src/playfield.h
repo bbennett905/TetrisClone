@@ -11,3 +11,5 @@
 void init_field();
 bool is_block_at(vec2d8_t pos);
 block_color color_at(vec2d8_t pos);
+void kill_active_tetromino();
+void

@@ -4,6 +4,7 @@
 
 //only really need to save the color of each block, not its position
 block_color field[FIELD_SIZE];
+tetromino_t* active_tetromino;
 
 void init_field()
 {
