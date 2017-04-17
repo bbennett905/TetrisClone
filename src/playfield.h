@@ -20,3 +20,5 @@ tetromino_shape get_next();
 void kill_active_tetromino();
 //Spawns a random new tetromino and sets it as active
 void spawn_tetromino();
+//Moves the active tetromino down by one unit
+void descend_active_tetromino();
