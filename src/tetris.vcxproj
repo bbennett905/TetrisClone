@@ -145,11 +145,13 @@
     <ClCompile Include="blocks.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="playfield.c" />
+    <ClCompile Include="render.c" />
     <ClCompile Include="vectors.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blocks.h" />
     <ClInclude Include="playfield.h" />
+    <ClInclude Include="render.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="vectors.h" />
   </ItemGroup>
