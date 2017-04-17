@@ -14,9 +14,11 @@ int main(int argc, char* argv[])
 	//game logic
 	//graphics
 	//audio
+	
+	//default descent rate should be 3/sec
 	while (true)
 	{
-		render_field();
+		render();
 	}
 
 	return 0;

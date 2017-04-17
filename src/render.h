@@ -1,5 +1,5 @@
 #pragma once
 
 void init_render();
-void render_field();
+void render();
 void kill_render();
