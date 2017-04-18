@@ -94,6 +94,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -104,6 +105,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -116,6 +118,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -130,6 +133,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -141,11 +145,13 @@
     <ClCompile Include="blocks.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="playfield.c" />
+    <ClCompile Include="render.c" />
     <ClCompile Include="vectors.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blocks.h" />
     <ClInclude Include="playfield.h" />
+    <ClInclude Include="render.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="vectors.h" />
   </ItemGroup>

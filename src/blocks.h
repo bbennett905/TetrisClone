@@ -39,21 +39,21 @@ typedef enum tetromino_shape
 	NUM_TETROMINO_SHAPES
 } tetromino_shape;
 
-typedef enum tetromino_rotation
+/*typedef enum tetromino_rotation
 {
 	ROTATION_NONE,
 	ROTATION_90,
 	ROTATION_180,
 	ROTATION_270,
 	NUM_ROTATIONS
-} tetromino_rotation;
+} tetromino_rotation;*/
 
 typedef struct tetromino_t
 {
 	//Position of the top left block, if you treat the tetromino as a filled rectangle
 	vec2d8_t _pos;
 
-	tetromino_shape _shape;
+	//tetromino_shape _shape;
 	//tetromino_rotation _rotation; //This may be unnecessary, using relative block pos
 	//Tetrominos always have 4 blocks, hence the name
 	block_t _blocks[4];
