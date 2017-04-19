@@ -146,10 +146,18 @@ void rotate_active_tetromino()
 
 void shift_active_tetromino(shift_direction dir)
 {
-	//TODO this currently only checks the tetrominos pos, not each blocks
 	if (!active_tetromino) return;
-	if (dir == SHIFT_LEFT && active_tetromino->_pos.x > 0)
-		active_tetromino->_pos.x -= 1;
-	if (dir == SHIFT_RIGHT && active_tetromino->_pos.x < FIELD_WIDTH - 1)
-		active_tetromino->_pos.x += 1;
+	tetromino_t copy = *active_tetromino;
+	
+	if (dir == SHIFT_LEFT)
+		copy._pos.x -= 1;
+	if (dir == SHIFT_RIGHT && copy._pos.x < FIELD_WIDTH - 1)
+		copy._pos.x += 1;
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (copy._pos.x + copy._blocks[i]._pos.x < 0) return;
+		if (copy._pos.x + copy._blocks[i]._pos.x >= FIELD_WIDTH) return;
+	}
+	*active_tetromino = copy;
 }
