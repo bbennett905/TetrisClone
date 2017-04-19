@@ -57,7 +57,7 @@ void handle_input()
 	}
 	else
 	{
-		//this is just a convenient place to do this.. for now TODO
+		//TODO this is just a convenient place to do this.. for now 
 		if (SDL_GetTicks() - last_drop_time >= (1000 / DEFAULT_DESCEND_RATE))
 		{
 			descend_active_tetromino();
