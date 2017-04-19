@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="blocks.c" />
+    <ClCompile Include="input.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="playfield.c" />
     <ClCompile Include="render.c" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blocks.h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="playfield.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="types.h" />
