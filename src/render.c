@@ -36,13 +36,13 @@ void set_draw_color(block_color color)
 		SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
 		break;
 	case COLOR_ORANGE:
-		SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x77, 0xFF);
+		SDL_SetRenderDrawColor(renderer, 0xFF, 0x99, 0x00, 0xFF);
 		break;
 	case COLOR_INDIGO:
-		SDL_SetRenderDrawColor(renderer, 0x11, 0xDD, 0x00, 0xFF);
+		SDL_SetRenderDrawColor(renderer, 0x11, 0x00, 0xFF, 0xFF);
 		break;
 	case COLOR_YELLOW:
-		SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0xFF, 0xFF);
+		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0x00, 0xFF);
 		break;
 	case COLOR_GREEN:
 		SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
@@ -51,7 +51,7 @@ void set_draw_color(block_color color)
 		SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
 		break;
 	case COLOR_MAGENTA:
-		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0x00, 0xFF);
+		SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0xFF, 0xFF);
 		break;
 	}
 }
