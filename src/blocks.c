@@ -5,6 +5,7 @@ const mat2d8_t cw_rotate = { 0, 1, -1, 0 };
 
 void rotate(tetromino_t* block)
 {
+	//TODO this shit dont work right
 	tetromino_t copy = *block;
 	for (int i = 0; i < 4; i++)
 	{

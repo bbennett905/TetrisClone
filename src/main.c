@@ -2,6 +2,7 @@
 #include <time.h>
 #include "playfield.h"
 #include "render.h"
+#include "input.h"
 
 int main(int argc, char* argv[])
 {
@@ -14,10 +15,12 @@ int main(int argc, char* argv[])
 	//game logic
 	//graphics
 	//audio
-	
+	spawn_tetromino();
 	//default descent rate should be 3/sec
-	while (true)
+	//will also probably want to cap at 30fps
+	while (!should_quit())
 	{
+		handle_input();
 		render();
 	}
 
