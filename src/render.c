@@ -117,6 +117,8 @@ void render()
 	//TODO blit score
 	render_next();
 	render_field();
+
+	SDL_RenderPresent(renderer);
 }
 
 void kill_render()
