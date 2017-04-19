@@ -8,10 +8,16 @@
 #define FIELD_WIDTH 10
 #define FIELD_SIZE (FIELD_HEIGHT * FIELD_WIDTH)
 
+typedef enum shift_direction
+{
+	SHIFT_LEFT,
+	SHIFT_RIGHT
+} shift_direction;
+
 //Initialize the playfield
 void init_field();
 //Returns true if there is a block at this field position
-bool is_block_at(vec2d8_t pos);
+int is_block_at(vec2d8_t pos);
 //Returns the color of a block at this position
 block_color color_at(vec2d8_t pos);
 //Returns the shape of the next tetromino
@@ -22,3 +28,6 @@ void kill_active_tetromino();
 void spawn_tetromino();
 //Moves the active tetromino down by one unit
 void descend_active_tetromino();
+//Rotates the active tetromino
+void rotate_active_tetromino();
+void shift_active_tetromino(shift_direction dir);

@@ -16,24 +16,27 @@ void init_field()
 	}
 }
 
-bool is_block_at(vec2d8_t pos)
+int is_block_at(vec2d8_t pos)
 {
-	return field[(pos.x * pos.y) - 1] != COLOR_NONE;
+	return field[(pos.x + pos.y * FIELD_WIDTH)] != COLOR_NONE;
 }
 
 block_color color_at(vec2d8_t pos)
 {
-	if (field[(pos.x * pos.y) - 1] != COLOR_NONE)
-		return field[(pos.x * pos.y) - 1];
+	if (field[(pos.x + pos.y * FIELD_WIDTH)] != COLOR_NONE)
+		return field[(pos.x + pos.y * FIELD_WIDTH)];
 	else
 	{
-		//Check to see if any active block is here
-		for (int i = 0; i < 4; i++)
+		if (active_tetromino)
 		{
-			vec2d8_t p = add(active_tetromino->_blocks[i]._pos, active_tetromino->_pos);
-			if (pos.x == p.x && pos.y == p.y)
+			//Check to see if any active block is here
+			for (int i = 0; i < 4; i++)
 			{
-				return active_tetromino->_blocks[i]._color;
+				vec2d8_t p = add(active_tetromino->_blocks[i]._pos, active_tetromino->_pos);
+				if (pos.x == p.x && pos.y == p.y)
+				{
+					return active_tetromino->_blocks[i]._color;
+				}
 			}
 		}
 	}
@@ -47,6 +50,7 @@ tetromino_shape get_next()
 
 void kill_active_tetromino()
 {
+	if (!active_tetromino) return;
 	for (int i = 0; i < 4; i++)
 	{
 		vec2d8_t temp_pos = add(active_tetromino->_pos, active_tetromino->_blocks[i]._pos);
@@ -130,5 +134,22 @@ void spawn_tetromino()
 
 void descend_active_tetromino()
 {
+	if (!active_tetromino) return;
 	active_tetromino->_pos.y -= 1;
+}
+
+void rotate_active_tetromino()
+{
+	if (!active_tetromino) return;
+	rotate(active_tetromino);
+}
+
+void shift_active_tetromino(shift_direction dir)
+{
+	//TODO this currently only checks the tetrominos pos, not each blocks
+	if (!active_tetromino) return;
+	if (dir == SHIFT_LEFT && active_tetromino->_pos.x > 0)
+		active_tetromino->_pos.x -= 1;
+	if (dir == SHIFT_RIGHT && active_tetromino->_pos.x < FIELD_WIDTH - 1)
+		active_tetromino->_pos.x += 1;
 }
