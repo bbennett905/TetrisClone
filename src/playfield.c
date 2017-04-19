@@ -81,48 +81,48 @@ void spawn_tetromino()
 		t->_pos.y = 20;
 		
 		t->_blocks[0]._pos = (vec2d8_t) { 0, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 2, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 3, 0 };
+		t->_blocks[1]._pos = (vec2d8_t) { 1, 0 };
+		t->_blocks[2]._pos = (vec2d8_t) { 2, 0 };
+		t->_blocks[3]._pos = (vec2d8_t) { 3, 0 };
 		break;
 	case TETROMINO_L:
 		t->_blocks[0]._pos = (vec2d8_t) { 0, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 2, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 2, 0 };
+		t->_blocks[1]._pos = (vec2d8_t) { 1, -1 };
+		t->_blocks[2]._pos = (vec2d8_t) { 2, -1 };
+		t->_blocks[3]._pos = (vec2d8_t) { 2, 0 };
 		break;
 	case TETROMINO_REVERSE_L:
 		t->_blocks[0]._pos = (vec2d8_t) { 0, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 2, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 0, 0 };
+		t->_blocks[1]._pos = (vec2d8_t) { 1, -1 };
+		t->_blocks[2]._pos = (vec2d8_t) { 2, -1 };
+		t->_blocks[3]._pos = (vec2d8_t) { 0, 0 };
 		break;
 	case TETROMINO_SQUARE:
 		//Altered spawn position
 		t->_pos.x = 4;
 
 		t->_blocks[0]._pos = (vec2d8_t) { 0, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 0, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, -1 };
+		t->_blocks[1]._pos = (vec2d8_t) { 1, 0 };
+		t->_blocks[2]._pos = (vec2d8_t) { 0, -1 };
+		t->_blocks[3]._pos = (vec2d8_t) { 1, -1 };
 		break;
 	case TETROMINO_S:
 		t->_blocks[0]._pos = (vec2d8_t) { 0, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 2, 0 };
+		t->_blocks[1]._pos = (vec2d8_t) { 1, -1 };
+		t->_blocks[2]._pos = (vec2d8_t) { 1, 0 };
+		t->_blocks[3]._pos = (vec2d8_t) { 2, 0 };
 		break;
 	case TETROMINO_REVERSE_S:
 		t->_blocks[0]._pos = (vec2d8_t) { 0, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 2, -1 };
+		t->_blocks[1]._pos = (vec2d8_t) { 1, -1 };
+		t->_blocks[2]._pos = (vec2d8_t) { 1, 0 };
+		t->_blocks[3]._pos = (vec2d8_t) { 2, -1 };
 		break;
 	case TETROMINO_T:
 		t->_blocks[0]._pos = (vec2d8_t) { 0, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, -1 };
-		t->_blocks[0]._pos = (vec2d8_t) { 1, 0 };
-		t->_blocks[0]._pos = (vec2d8_t) { 2, -1 };
+		t->_blocks[1]._pos = (vec2d8_t) { 1, -1 };
+		t->_blocks[2]._pos = (vec2d8_t) { 1, 0 };
+		t->_blocks[3]._pos = (vec2d8_t) { 2, -1 };
 		break;
 	}
 	active_tetromino = t;
