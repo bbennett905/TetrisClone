@@ -33,3 +33,4 @@ void descend_active_tetromino();
 //Rotates the active tetromino
 void rotate_active_tetromino();
 void shift_active_tetromino(shift_direction dir);
+int has_lost();

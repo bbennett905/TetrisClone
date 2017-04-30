@@ -12,6 +12,7 @@ block_color field[FIELD_SIZE];
 tetromino_t* active_tetromino;
 tetromino_shape next;
 Uint32 last_drop_time = 0;
+int lost = 0;
 
 void init_field()
 {
@@ -78,7 +79,13 @@ void update_field()
 		{
 			kill_active_tetromino();
 			row_complete_check();
-			//TODO check for loss
+			for (int i = 0; i < FIELD_WIDTH; i++)
+			{
+				if (is_block_at((vec2d8_t) { i, 21 }))
+				{
+					lost = 1;
+				}
+			}
 			spawn_tetromino();
 		}
 		return;
@@ -247,4 +254,9 @@ void shift_active_tetromino(shift_direction dir)
 		if (copy._pos.x + copy._blocks[i]._pos.x >= FIELD_WIDTH) return;
 	}
 	*active_tetromino = copy;
+}
+
+int has_lost()
+{
+	return lost;
 }
