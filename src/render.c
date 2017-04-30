@@ -67,12 +67,12 @@ void init_render()
 void render_field()
 {
 	//Renders all stationary blocks as well as the active block
-	for (int i = FIELD_SIZE - (2 * FIELD_WIDTH); i > 0; i--)
+	for (int i = FIELD_SIZE - (2 * FIELD_WIDTH); i >= 0; i--)
 	{
 		vec2d8_t pos = { i % FIELD_WIDTH, i / FIELD_WIDTH };
-		SDL_Rect r = (SDL_Rect){(100 + 25 * pos.x), (20 + 25 * (20 - pos.y)), 23, 23 };
+		SDL_Rect r = (SDL_Rect){(100 + 25 * pos.x), (25 * (20 - pos.y)), 23, 23 };
 		set_draw_color(color_at(pos));
-		SDL_RenderDrawRect(renderer, &r);
+		SDL_RenderFillRect(renderer, &r);
 	}
 }
 
@@ -84,25 +84,25 @@ void render_next()
 	switch (get_next())
 	{
 	case TETROMINO_I:
-		SDL_RenderDrawRects(renderer, NEXT_I_RECTS, 4);
+		SDL_RenderFillRects(renderer, NEXT_I_RECTS, 4);
 		break;
 	case TETROMINO_L:
-		SDL_RenderDrawRects(renderer, NEXT_L_RECTS, 4);
+		SDL_RenderFillRects(renderer, NEXT_L_RECTS, 4);
 		break;
 	case TETROMINO_REVERSE_L:
-		SDL_RenderDrawRects(renderer, NEXT_REVERSE_L_RECTS, 4);
+		SDL_RenderFillRects(renderer, NEXT_REVERSE_L_RECTS, 4);
 		break;
 	case TETROMINO_SQUARE:
-		SDL_RenderDrawRects(renderer, NEXT_SQUARE_RECTS, 4);
+		SDL_RenderFillRects(renderer, NEXT_SQUARE_RECTS, 4);
 		break;
 	case TETROMINO_S:
-		SDL_RenderDrawRects(renderer, NEXT_S_RECTS, 4);
+		SDL_RenderFillRects(renderer, NEXT_S_RECTS, 4);
 		break;
 	case TETROMINO_REVERSE_S:
-		SDL_RenderDrawRects(renderer, NEXT_REVERSE_S_RECTS, 4);
+		SDL_RenderFillRects(renderer, NEXT_REVERSE_S_RECTS, 4);
 		break;
 	case TETROMINO_T:
-		SDL_RenderDrawRects(renderer, NEXT_T_RECTS, 4);
+		SDL_RenderFillRects(renderer, NEXT_T_RECTS, 4);
 		break;
 	}
 }
@@ -115,6 +115,8 @@ void render()
 	// final window w = 350 h = 540
 	//TODO blit bg img;
 	//TODO blit score
+	set_draw_color(0);
+	SDL_RenderClear(renderer);
 	render_next();
 	render_field();
 
