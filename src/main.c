@@ -18,9 +18,11 @@ int main(int argc, char* argv[])
 	spawn_tetromino();
 	//default descent rate should be 3/sec
 	//will also probably want to cap at 30fps
+
 	while (!should_quit())
 	{
 		handle_input();
+		update_field();
 		render();
 	}
 
