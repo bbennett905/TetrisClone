@@ -22,6 +22,44 @@ void init_field()
 	}
 }
 
+void row_complete_check()
+{
+	for (int i = 0; i < FIELD_HEIGHT; i++)
+	{
+		int has_empty_spot = 0;
+		for (int j = 0; j < FIELD_WIDTH; j++)
+		{
+			if (!is_block_at((vec2d8_t) { j, i } ))
+			{ 
+				has_empty_spot = 1;
+				break;
+			}
+		}
+		if (!has_empty_spot)
+		{
+			//TODO Score
+			//Clear row, then drop all blocks above it down 1
+			for (int j = 0; j < FIELD_WIDTH; j++)
+			{
+				field[(j + i * FIELD_WIDTH)] = COLOR_NONE;
+			}
+			for (int j = i + 1; j < FIELD_HEIGHT; j++)
+			{
+				for (int k = 0; k < FIELD_WIDTH; k++)
+				{
+					block_color col = color_at((vec2d8_t) { k, j });
+					if (col != COLOR_NONE)
+					{
+						field[k + (j - 1) * FIELD_WIDTH] = col;
+						field[k + j * FIELD_WIDTH] = COLOR_NONE;
+					}
+				}
+			}
+			i--;
+		}
+	}
+}
+
 void update_field()
 {
 	int should_stop = 0;
@@ -39,6 +77,8 @@ void update_field()
 		if (SDL_GetTicks() - last_drop_time >= (1000 / DEFAULT_DESCEND_RATE))
 		{
 			kill_active_tetromino();
+			row_complete_check();
+			//TODO check for loss
 			spawn_tetromino();
 		}
 		return;
