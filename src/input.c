@@ -70,3 +70,8 @@ int should_quit()
 {
 	return quit;
 }
+
+int should_drop_fast()
+{
+	return down_pressed;
+}
