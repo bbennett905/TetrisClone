@@ -16,6 +16,8 @@ typedef enum shift_direction
 
 //Initialize the playfield
 void init_field();
+//Update playfield
+void update_field();
 //Returns true if there is a block at this field position
 int is_block_at(vec2d8_t pos);
 //Returns the color of a block at this position

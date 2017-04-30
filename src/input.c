@@ -3,12 +3,8 @@
 #include <SDL.h>
 #include "playfield.h"
 
-#define FORCE_DESCEND_RATE 10 //number of blocks to drop/s
-#define DEFAULT_DESCEND_RATE 2
-
 int quit = 0;
 int down_pressed = 0;
-Uint32 last_drop_time = 0;
 
 void handle_input()
 {
@@ -44,24 +40,6 @@ void handle_input()
 			{
 				down_pressed = 0;
 			}
-		}
-	}
-	
-	if (down_pressed)
-	{
-		if (SDL_GetTicks() - last_drop_time >= (1000 / FORCE_DESCEND_RATE))
-		{
-			descend_active_tetromino();
-			last_drop_time = SDL_GetTicks();
-		}
-	}
-	else
-	{
-		//TODO this is just a convenient place to do this.. for now 
-		if (SDL_GetTicks() - last_drop_time >= (1000 / DEFAULT_DESCEND_RATE))
-		{
-			descend_active_tetromino();
-			last_drop_time = SDL_GetTicks();
 		}
 	}
 }

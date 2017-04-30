@@ -1,11 +1,17 @@
 #include "playfield.h"
+#include "input.h"
+#include "SDL.h"
 
 #include <stdlib.h>
+
+#define FORCE_DESCEND_RATE 10 //number of blocks to drop/s
+#define DEFAULT_DESCEND_RATE 2
 
 //only really need to save the color of each block, not its position
 block_color field[FIELD_SIZE];
 tetromino_t* active_tetromino;
 tetromino_shape next;
+Uint32 last_drop_time = 0;
 
 void init_field()
 {
@@ -13,6 +19,46 @@ void init_field()
 	for (int i = 0; i < FIELD_SIZE; i++)
 	{
 		field[i] = COLOR_NONE;
+	}
+}
+
+void update_field()
+{
+	int should_stop = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		vec2d8_t y_1 = { 0, 1 };
+		if ((active_tetromino->_blocks[i]._pos.y + active_tetromino->_pos.y) <= 0 ||
+			is_block_at(sub(add(active_tetromino->_blocks[i]._pos, active_tetromino->_pos), y_1)))
+		{
+			should_stop = 1;
+		}
+	}
+	if (should_stop)
+	{
+		if (SDL_GetTicks() - last_drop_time >= (1000 / DEFAULT_DESCEND_RATE))
+		{
+			kill_active_tetromino();
+			spawn_tetromino();
+		}
+		return;
+	}
+
+	if (should_drop_fast())
+	{
+		if (SDL_GetTicks() - last_drop_time >= (1000 / FORCE_DESCEND_RATE))
+		{
+			descend_active_tetromino();
+			last_drop_time = SDL_GetTicks();
+		}
+	}
+	else
+	{
+		if (SDL_GetTicks() - last_drop_time >= (1000 / DEFAULT_DESCEND_RATE))
+		{
+			descend_active_tetromino();
+			last_drop_time = SDL_GetTicks();
+		}
 	}
 }
 
@@ -156,6 +202,7 @@ void shift_active_tetromino(shift_direction dir)
 
 	for (int i = 0; i < 4; i++)
 	{
+		if (is_block_at(add(copy._blocks[i]._pos, copy._pos))) return;
 		if (copy._pos.x + copy._blocks[i]._pos.x < 0) return;
 		if (copy._pos.x + copy._blocks[i]._pos.x >= FIELD_WIDTH) return;
 	}
