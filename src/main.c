@@ -11,9 +11,7 @@ int main(int argc, char* argv[])
 	init_render();
 
 	//todo:
-	//input
 	//game logic
-	//graphics
 	//audio
 	spawn_tetromino();
 	//default descent rate should be 3/sec
@@ -24,6 +22,7 @@ int main(int argc, char* argv[])
 		handle_input();
 		update_field();
 		render();
+		SDL_Delay(50);
 	}
 
 	return 0;
