@@ -13,6 +13,7 @@ tetromino_t* active_tetromino;
 tetromino_shape next;
 Uint32 last_drop_time = 0;
 int lost = 0;
+int lines_cleared = 0;
 
 void init_field()
 {
@@ -38,7 +39,7 @@ void row_complete_check()
 		}
 		if (!has_empty_spot)
 		{
-			//TODO Score
+			lines_cleared++;
 			//Clear row, then drop all blocks above it down 1
 			for (int j = 0; j < FIELD_WIDTH; j++)
 			{
@@ -259,4 +260,9 @@ void shift_active_tetromino(shift_direction dir)
 int has_lost()
 {
 	return lost;
+}
+
+int get_lines_cleared()
+{
+	return lines_cleared;
 }
